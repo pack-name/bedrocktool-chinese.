@@ -163,7 +163,7 @@ func (g *Gatherings) Layout(gtx C, th *material.Theme) D {
 				g.l.Lock()
 				defer g.l.Unlock()
 				if len(g.gatherings) == 0 {
-					return layout.Center.Layout(gtx, material.H5(th, "there are no gatherings active").Layout)
+					return layout.Center.Layout(gtx, material.H5(th, "没有活动的聚会").Layout)
 				}
 
 				l := material.List(th, &g.list)
@@ -205,9 +205,9 @@ func (g *Gatherings) Layout(gtx C, th *material.Theme) D {
 								layout.Rigid(func(gtx C) D {
 									var text string
 									if hasStarted {
-										text = fmt.Sprintf("Ends in %s", time.Until(end).Truncate(time.Second))
+										text = fmt.Sprintf("结束于 %s", time.Until(end).Truncate(time.Second))
 									} else {
-										text = fmt.Sprintf("Starts in %s", time.Until(start).Truncate(time.Second))
+										text = fmt.Sprintf("开始于 %s", time.Until(start).Truncate(time.Second))
 									}
 									return material.Label(th, th.TextSize, text).Layout(gtx)
 								}),

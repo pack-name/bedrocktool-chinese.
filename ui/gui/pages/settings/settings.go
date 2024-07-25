@@ -49,7 +49,7 @@ func New(invalidate func()) pages.Page {
 	}
 
 	for k, cmd := range commands.Registered {
-		if !slices.Contains([]string{"worlds", "skins", "packs"}, k) {
+		if !slices.Contains([]string{"下载服务器地图", "下载服务器玩家皮肤", "下载服务器资源包"}, k) {
 			continue
 		}
 
@@ -172,7 +172,7 @@ func (p *Page) Layout(gtx C, th *material.Theme) D {
 
 			layout.Flexed(1, func(gtx C) (d D) {
 				if p.cmdMenu.selected == "" {
-					d = layout.Center.Layout(gtx, material.H5(th, "Select a Mode").Layout)
+					d = layout.Center.Layout(gtx, material.H5(th, "选择一种模式").Layout)
 					d.Size.Y = gtx.Constraints.Max.Y
 				} else {
 					s := p.settings[p.cmdMenu.selected]
@@ -195,7 +195,7 @@ func (p *Page) Layout(gtx C, th *material.Theme) D {
 					}.Layout(gtx, func(gtx C) D {
 						gtx.Constraints.Min = image.Pt(gtx.Dp(300), gtx.Dp(40))
 						gtx.Constraints.Max = image.Pt(gtx.Constraints.Max.X/3, gtx.Dp(40))
-						b := material.Button(th, &p.startButton, "Start")
+						b := material.Button(th, &p.startButton, "开始")
 						if !validSettings {
 							b.Color = th.Bg
 							b.Background = th.Fg

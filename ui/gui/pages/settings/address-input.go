@@ -93,7 +93,7 @@ func (a *addressInput) Layout(gtx C, th *material.Theme) D {
 			layout.Rigid(func(gtx C) D {
 				macro := op.Record(gtx.Ops)
 				d := layout.UniformInset(8).Layout(gtx, func(gtx C) D {
-					e := material.Editor(th, &a.editor, "Enter Server Address")
+					e := material.Editor(th, &a.editor, "输入服务器地址")
 					e.LineHeight += 4
 					return e.Layout(gtx)
 				})

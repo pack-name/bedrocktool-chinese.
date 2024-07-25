@@ -177,16 +177,16 @@ func (p *Page) drawPackEntry(gtx C, th *material.Theme, pack *packEntry, onlyKey
 											t = pack.Err.Error()
 										} else if pack.Processing {
 											c = th.Fg
-											t = "Processing"
+											t = "正在处理"
 										} else if pack.IsFinished {
 											c = th.Fg
 											t = ""
 										} else if pack.Loaded == pack.Size {
 											c = th.Fg
-											t = "Downloaded"
+											t = "已下载"
 										} else {
 											c = th.Fg
-											t = "Downloading"
+											t = "正在下载"
 										}
 
 										if t != "" {
@@ -241,9 +241,9 @@ func (p *Page) Layout(gtx C, th *material.Theme) D {
 		})
 	}
 
-	var title = "Downloading Packs"
+	var title = "下载资源包中"
 	if p.State == messages.UIStateFinished {
-		title = "Downloaded Packs"
+		title = "已下载资源包"
 	}
 
 	return layout.Inset{

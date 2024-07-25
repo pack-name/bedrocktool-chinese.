@@ -235,9 +235,9 @@ func (r *Router) layoutLoginButton(gtx layout.Context, fg, bg color.NRGBA) layou
 		}
 	}
 
-	var text = "Login"
+	var text = "授权"
 	if utils.Auth.LoggedIn() {
-		text = "Logout"
+		text = "取消授权"
 	}
 	button := material.Button(r.th, &r.loginButton, text)
 	button.Background.R -= 20
